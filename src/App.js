@@ -10,18 +10,18 @@ function App() {
   const clickButtonHandler =  () => {
     if(color === 'red') {
       setColor('blue');
-      setText('Change to red')
     }else {
       setColor('red')
-      setText('Change to blue')
     }
   }
+  const backgroundColor = disabled ? 'gray' : color
   return (
     <div className="App">
-      <button disabled={disabled} onClick={clickButtonHandler} style={{backgroundColor:color}}>{text}</button>
-      <input type="checkbox" onClick={()=>{
+      <button disabled={disabled} onClick={clickButtonHandler} style={{backgroundColor:backgroundColor}}>{'버튼'}</button>
+      <input id = {'checkbox'} aria-checked={disabled} type="checkbox" onClick={(e)=>{
         setDisabled(!disabled)
       }}></input>
+      <label></label>
     </div>
   );
 }
