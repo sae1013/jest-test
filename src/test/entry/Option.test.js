@@ -9,5 +9,7 @@ test("Vite Jest test",async()=> {
   const scoopImages = await screen.findAllByRole('img',
     {name:/scoop$/i}) ;
   expect(scoopImages).toHaveLength(2);
+  // const error = screen.getByRole('error');
+  // expect(error).toBeInTheDocument();
 
 })
