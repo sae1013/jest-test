@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ScoopOptions from "./ScoopOptions";
+import {useOrderDetails} from "../../hooks/scoopContext.jsx";
+import OptionDetail from "./OptionDetail.jsx";
 
 function Options({optionType}) {
   const [options, setOptions] = useState([])
   const [error,setError] = useState(null);
+  const {total} = useOrderDetails();
 
   useEffect(() => {
     axios.get(`http://localhost:3000/${optionType}`)
@@ -22,9 +25,11 @@ function Options({optionType}) {
   return (
     <div>
       {
-        options.map((option, index) => <ItemComponent key={index} option={option}></ItemComponent>)
+        options.map((option, index) => <ItemComponent key={index} option={option} optionType={"scoops"}></ItemComponent>)
       }
+      <OptionDetail></OptionDetail>
     </div>
+
   );
 }
 
