@@ -4,16 +4,20 @@ import axios from 'axios';
 import './App.css'
 import ScoopOptions from "./components/entry/ScoopOptions.jsx";
 import Option from "./components/entry/Option.jsx";
+import {OrderDetailProvider,useOrderDetails} from './hooks/scoopContext.jsx';
 
 function App() {
+  const ctx = useOrderDetails();
+
   useEffect(()=>{
     axios.get('http://localhost:3030/test').then(res=>console.log(res.data))
   },[])
+
   return (
     <div className="App">
-      {/*<button role="tab" aria-selected={"true"}>React</button>*/}
-      <button>submit</button>
-      <Option optionType={"scoops"}/>
+      <OrderDetailProvider>
+        <Option optionType={"scoops"}/>
+      </OrderDetailProvider>
     </div>
   )
 }
