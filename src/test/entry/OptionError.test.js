@@ -7,8 +7,8 @@ import Option from '../../components/entry/Option.jsx'
 test.only('http Reqeust Error Test', async () => {
   server.resetHandlers(
     rest.get('http://localhost:3000/scoops', (req, res, ctx) => {
-      return res(ctx.status(500),ctx.json({
-          message:'something went wrong'
+      return res(ctx.status(500), ctx.json({
+          message: 'something went wrong'
         })
       )
     }),
@@ -19,11 +19,11 @@ test.only('http Reqeust Error Test', async () => {
 
 })
 
-  test.only('http Reqeust Error Test', async () => {
+test.only('http Reqeust Error Test', async () => {
   server.resetHandlers(
     rest.get('http://localhost:3000/scoops', (req, res, ctx) => {
-      return res(ctx.status(500),ctx.json({
-          message:'something went wrong'
+      return res(ctx.status(500), ctx.json({
+          message: 'something went wrong'
         })
       )
     }),

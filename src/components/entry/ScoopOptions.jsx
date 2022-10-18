@@ -1,8 +1,15 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import {useOrderDetails} from "../../hooks/scoopContext.jsx";
 
 function ScoopOptions({ option,optionType }) {
-  const optionDetailCtx = useOrderDetails();
+  const {updateItemCount,totals,optionCountState} = useOrderDetails();
+  const inputRef = useRef();
+
+  const handleAmount = () => {
+    const inputValue = parseInt(inputRef.current.value)
+
+    updateItemCount(option.name,inputValue,optionType);
+  }
 
   return (
     <div>
@@ -10,7 +17,8 @@ function ScoopOptions({ option,optionType }) {
       <div>
         <img name={option.name} src={option.imagePath} alt={`${option.name} scoop`}></img>
       </div>
-      <input type={"number"} min={0} defaultValue={0}/>
+      <input role={option.name} ref={inputRef} onChange = {()=>handleAmount()} type={"number"} min={0} defaultValue={0}/>
+
     </div>
   )
 }
