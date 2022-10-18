@@ -1,6 +1,5 @@
-import {render, screen, waitFor, waitForElement} from "@testing-library/react";
 import {act} from 'react-dom/test-utils';
-
+import {render,screen} from '../test-utils.js';
 import Option from '../../components/entry/Option.jsx';
 
 test("Vite Jest test", async () => {

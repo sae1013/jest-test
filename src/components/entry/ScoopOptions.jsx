@@ -17,7 +17,7 @@ function ScoopOptions({ option,optionType }) {
       <div>
         <img name={option.name} src={option.imagePath} alt={`${option.name} scoop`}></img>
       </div>
-      <input role={option.name} ref={inputRef} onChange = {()=>handleAmount()} type={"number"} min={0} defaultValue={0}/>
+      <input aria-label={option.name} ref={inputRef} onChange = {()=>handleAmount()} type={"number"} min={0} defaultValue={0}/>
 
     </div>
   )

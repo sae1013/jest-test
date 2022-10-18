@@ -1,8 +1,9 @@
-import {findByRole, render, screen} from '@testing-library/react';
+// import {findByRole, render, screen} from '@testing-library/react';
 import {server} from "../../mocks/server.js";
 import {rest} from 'msw'
 import ScoopOptions from "../../components/entry/ScoopOptions.jsx";
 import Option from '../../components/entry/Option.jsx'
+import {render,findByRole,screen} from '../test-utils.js';
 
 test.only('http Reqeust Error Test', async () => {
   server.resetHandlers(
